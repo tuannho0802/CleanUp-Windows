@@ -1,0 +1,556 @@
+╔══════════════════════════════════════════════════════════════════╗
+║              DEEP CLEAN WINDOWS v2.0                            ║
+║                    PACKAGE INDEX                                ║
+║              (Hướng Dẫn Cấu Trúc File)                         ║
+╚══════════════════════════════════════════════════════════════════╝
+
+
+📦 PACKAGE STRUCTURE - CẤU TRÚC THƯ MỤC
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Deep_Clean_Windows_v2.0/
+├─ 🎯 Deep_Clean_Windows_Advanced.bat (MAIN SCRIPT)
+├─ 📖 README.txt (START HERE - ĐỌC TRƯỚC)
+├─ 📖 HƯỚNG_DẪN_SỬ_DỤNG.txt (DETAILED MANUAL)
+├─ 📖 CHANGELOG.txt (VERSION HISTORY)
+├─ 📖 SCRIPT_BỔ_SUNG_VÀ_TỰY_CHỈNH.txt (ADVANCED GUIDE)
+├─ 📖 MINI_SCRIPTS_COLLECTION.txt (12 MINI SCRIPTS)
+└─ 📖 PACKAGE_INDEX.txt (FILE NÀY)
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+## 📋 DETAILED FILE LISTING
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+
+### ⭐ FILE 1: Deep_Clean_Windows_Advanced.bat
+───────────────────────────────────────────────────────────────────
+
+Loại: Batch Script (Windows Executable)
+Kích thước: ~280 lines
+Ngôn ngữ: Batch/CMD
+Yêu cầu: Windows 10/11 + Admin rights
+
+📖 MỤC ĐÍCH:
+  Main cleanup script với 15+ tác vụ dọn dẹp Windows
+
+🎯 KHI NÀO DÙNG:
+  1. Lần chạy đầu tiên
+  2. Chạy định kỳ (hàng tuần/tháng)
+  3. Setup Task Scheduler
+
+🚀 CÁCH CHẠY:
+  Normal:  Right-click → Run as Administrator
+  Silent:  cmd.exe: Deep_Clean_Windows_Advanced.bat silent
+  Log:     Desktop\CleanupLog.txt
+
+✨ TÍNH NĂNG:
+  ✓ Admin check tự động
+  ✓ 15 tác vụ dọn dẹp
+  ✓ Chi tiết logging
+  ✓ Error handling
+  ✓ Silent/Verbose mode
+  ✓ Task Scheduler friendly
+
+📊 GIẢI PHÓNG DUNG LƯỢNG:
+  Hàng ngày:     500 MB - 2 GB
+  Hàng tuần:     2 GB - 5 GB
+  Lần đầu:       5 GB - 20+ GB
+
+⏱️ THỜI GIAN CHẠY:
+  Verbose mode:  ~10-15 phút
+  Silent mode:   ~10-15 phút
+
+
+### 📖 FILE 2: README.txt
+───────────────────────────────────────────────────────────────────
+
+Loại: Documentation (Text)
+Kích thước: ~400 dòng
+Ngôn ngữ: Tiếng Việt
+
+📖 MỤC ĐÍCH:
+  Giới thiệu toàn bộ package, quick start guide
+
+🎯 KHI NÀO ĐỌC:
+  ✅ Lần đầu tiên
+  ✅ Trước khi chạy script lần đầu
+  ✅ Nếu có câu hỏi chung
+
+📚 NỘI DUNG CHÍNH:
+  • Quick start (3 bước)
+  • Package contents
+  • System requirements
+  • Main features
+  • Storage freed
+  • Important warnings
+  • Troubleshooting
+  • FAQ
+  • Next steps
+
+💡 HỮU ÍCH CHO:
+  → Người mới bắt đầu
+  → Muốn hiểu nhanh
+  → Muốn biết system requirements
+
+
+### 📖 FILE 3: HƯỚNG_DẪN_SỬ_DỤNG.txt
+───────────────────────────────────────────────────────────────────
+
+Loại: User Manual (Text)
+Kích thước: ~600 dòng
+Ngôn ngữ: Tiếng Việt
+
+📖 MỤC ĐÍCH:
+  Hướng dẫn chi tiết cách sử dụng script
+
+🎯 KHI NÀO ĐỌC:
+  ✅ Trước chạy lần đầu
+  ✅ Muốn hiểu từng bước
+  ✅ Muốn setup Task Scheduler
+  ✅ Gặp vấn đề
+
+📚 NỘI DUNG CHÍNH:
+  • Yêu cầu hệ thống
+  • 3 cách chạy script
+  • Chi tiết 15 tác vụ
+  • Chế độ Silent/Verbose
+  • Xử lý sự cố
+  • Bảo mật & cảnh báo
+  • Dung lượng giải phóng
+  • FAQ
+  • Log file info
+
+💡 HỮU ÍCH CHO:
+  → Muốn hiểu chi tiết
+  → Setup Task Scheduler
+  → Xử lý sự cố
+
+
+### 📖 FILE 4: CHANGELOG.txt
+───────────────────────────────────────────────────────────────────
+
+Loại: Version History (Text)
+Kích thước: ~400 dòng
+Ngôn ngữ: Tiếng Việt
+
+📖 MỤC ĐÍCH:
+  So sánh version 1.0 (file cũ) vs version 2.0 (file mới)
+
+🎯 KHI NÀO ĐỌC:
+  ✅ Nâng cấp từ version cũ
+  ✅ Muốn biết gì mới
+  ✅ So sánh tính năng
+
+📚 NỘI DUNG CHÍNH:
+  • Thống kê version
+  • Tính năng mới v2.0
+  • Cải tiến trong v2.0
+  • So sánh chi tiết (bảng)
+  • Hướng dẫn nâng cấp
+  • Migration checklist
+
+💡 HỮU ÍCH CHO:
+  → Người dùng file cũ
+  → Muốn nâng cấp
+  → So sánh tính năng
+
+
+### 📖 FILE 5: SCRIPT_BỔ_SUNG_VÀ_TỰY_CHỈNH.txt
+───────────────────────────────────────────────────────────────────
+
+Loại: Advanced Guide (Text)
+Kích thước: ~700 dòng
+Ngôn ngữ: Tiếng Việt
+
+📖 MỤC ĐÍCH:
+  Hướng dẫn tối ưu thêm và scripts bổ sung
+
+🎯 KHI NÀO ĐỌC:
+  ✅ Muốn tối ưu thêm
+  ✅ Muốn disable services
+  ✅ Muốn tùy chỉnh script
+  ✅ Developer tools users
+
+📚 NỘI DUNG CHÍNH:
+  • So sánh v1.0 vs v2.0 (chi tiết)
+  • Cách disable services
+  • Tối ưu hệ thống bổ sung
+  • Registry cleanup an toàn
+  • Scripts tùy chỉnh nhỏ
+  • Monitoring folder size
+  • Advanced FAQ
+
+💡 HỮU ÍCH CHO:
+  → Power users
+  → Developer
+  → Muốn tối ưu sâu
+
+
+### 📖 FILE 6: MINI_SCRIPTS_COLLECTION.txt
+───────────────────────────────────────────────────────────────────
+
+Loại: Scripts Library (Text)
+Kích thước: ~1000 dòng
+Ngôn ngữ: Tiếng Việt + Code
+
+📖 MỤC ĐÍCH:
+  12 mini scripts sẵn sàng copy-paste
+
+🎯 KHI NÀO DÙNG:
+  ✅ Muốn cleanup từng phần
+  ✅ Muốn tùy chỉnh
+  ✅ Copy-paste sử dụng
+
+📚 CÁC SCRIPTS CÓ SẴN:
+  1. Quick Temp Cleanup          (~500MB - 2GB, <1 min)
+  2. Browser Cache Cleanup        (~1GB - 3GB, <2 min)
+  3. Developer Tools Cleanup      (~1GB - 3GB, <2 min)
+  4. System Optimization         (~500MB - 1GB, <1 min)
+  5. Windows Update Cleanup       (~500MB - 2GB, <1 min)
+  6. Recycle Bin Cleanup         (Varies, <1 min)
+  7. Disk Space Analyzer         (No delete, ~30 sec)
+  8. Disable Services            (Telemetry, <1 min)
+  9. Folder Size Analyzer        (No delete, ~2 min)
+  10. Full Cleanup + Defrag      (2GB - 10GB, 30-60 min)
+  11. Repair System Files        (Repair, 15-30 min)
+  12. Registry Backup            (Backup, <1 min)
+
+💡 HỮU ÍCH CHO:
+  → Muốn cleanup tùy chọn
+  → Không muốn chạy full script
+  → Custom workflow
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+
+## 🗺️ READING PATH - HƯỚNG ĐỌC TƯƠNG TỰ
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+### BEGINNER PATH (Người Mới Bắt Đầu)
+────────────────────────────────────────────────────────────────
+
+1️⃣ README.txt
+   ↓ Hiểu overview & quick start
+   
+2️⃣ HƯỚNG_DẪN_SỬ_DỤNG.txt
+   ↓ Đọc phần "CÁCH CHẠY" & "CHI TIẾT CÁC TÁC VỤ"
+   
+3️⃣ Deep_Clean_Windows_Advanced.bat
+   ↓ Chạy script lần đầu
+   
+4️⃣ Desktop/CleanupLog.txt
+   ↓ Kiểm tra log để xác nhận thành công
+
+⏱️ Thời gian: ~30 phút
+
+
+### POWER USER PATH (Người Dùng Nâng Cao)
+────────────────────────────────────────────────────────────────
+
+1️⃣ README.txt
+   ↓ Quick scan
+   
+2️⃣ CHANGELOG.txt
+   ↓ Hiểu sự thay đổi
+   
+3️⃣ SCRIPT_BỔ_SUNG_VÀ_TỰY_CHỈNH.txt
+   ↓ Tối ưu thêm & custom config
+   
+4️⃣ MINI_SCRIPTS_COLLECTION.txt
+   ↓ Chọn scripts phù hợp
+   
+5️⃣ Deep_Clean_Windows_Advanced.bat
+   ↓ Chạy main script + custom scripts
+
+⏱️ Thời gian: ~1 giờ
+
+
+### QUICK START PATH (Người Vội)
+────────────────────────────────────────────────────────────────
+
+1️⃣ README.txt (chỉ "QUICK START")
+   
+2️⃣ Deep_Clean_Windows_Advanced.bat
+   ↓ Run as Admin
+
+3️⃣ Done! ✓
+
+⏱️ Thời gian: <5 phút
+
+
+### TROUBLESHOOTING PATH (Gặp Vấn Đề)
+────────────────────────────────────────────────────────────────
+
+1️⃣ README.txt
+   ↓ Phần "TROUBLESHOOTING"
+   
+2️⃣ HƯỚNG_DẪN_SỬ_DỤNG.txt
+   ↓ Phần "XỬ LÝ SỰ CỐ"
+   
+3️⃣ CleanupLog.txt
+   ↓ Kiểm tra dòng có "✗"
+   
+4️⃣ MINI_SCRIPTS_COLLECTION.txt
+   ↓ Script 11 hoặc 12 để fix
+
+⏱️ Thời gian: ~15 phút
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+
+## 🔍 QUICK SEARCH - TÌM KIẾM NHANH
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Nếu bạn muốn...                  Đọc file này
+────────────────────────────────────────────────────────────────
+... Bắt đầu nhanh               → README.txt (QUICK START)
+... Setup Task Scheduler        → HƯỚNG_DẪN_SỬ_DỤNG.txt
+... Biết tính năng mới          → CHANGELOG.txt
+... Xóa browser cache thôi      → MINI_SCRIPTS_COLLECTION.txt #2
+... Xóa temp thôi               → MINI_SCRIPTS_COLLECTION.txt #1
+... Disable services            → MINI_SCRIPTS_COLLECTION.txt #8
+... Backup registry             → MINI_SCRIPTS_COLLECTION.txt #12
+... Gặp lỗi                     → README.txt / HƯỚNG_DẪN_SỬ_DỤNG.txt
+... Tối ưu hệ thống thêm        → SCRIPT_BỔ_SUNG_VÀ_TỰY_CHỈNH.txt
+... Chạy full cleanup           → Deep_Clean_Windows_Advanced.bat
+... Hiểu source code            → Deep_Clean_Windows_Advanced.bat
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+
+## 📊 SCRIPT COMPARISON MATRIX
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Script                              | Type    | Time    | Size Freed | Difficulty
+────────────────────────────────────────────────────────────────────────────────
+Deep_Clean_Windows_Advanced.bat     | FULL    | 15 min  | 5-20 GB    | Easy
+Quick Temp Cleanup                  | MINI    | <1 min  | 500MB-2GB  | Easy
+Browser Cache Cleanup               | MINI    | <2 min  | 1-3 GB     | Easy
+Developer Tools Cleanup             | MINI    | <2 min  | 1-3 GB     | Easy
+System Optimization                 | MINI    | <1 min  | 500MB-1GB  | Easy
+Windows Update Cleanup              | MINI    | <1 min  | 500MB-2GB  | Easy
+Recycle Bin Cleanup                 | MINI    | <1 min  | Varies     | Easy
+Disk Space Analyzer                 | MINI    | 30 sec  | 0          | Easy
+Disable Services                    | MINI    | <1 min  | ~10-20%CPU | Medium
+Folder Size Analyzer                | MINI    | 2 min   | 0          | Easy
+Full Cleanup + Defrag               | COMBO   | 30-60min| 2-10 GB    | Easy
+Repair System Files                 | MINI    | 15-30min| 0          | Hard
+Registry Backup                     | MINI    | <1 min  | 0          | Easy
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+
+## 🎯 RECOMMENDED WORKFLOWS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+### WORKFLOW 1: MAINTENANCE CLEANUP (Hàng Tuần)
+────────────────────────────────────────────────────────────────
+⏱️ Thời gian: ~15 phút
+
+1. Đóng tất cả browser
+2. Chạy: Deep_Clean_Windows_Advanced.bat (verbose mode)
+3. Kiểm tra log: Desktop\CleanupLog.txt
+4. Done!
+
+Giải phóng: 2-5 GB
+
+
+### WORKFLOW 2: QUICK CLEANUP (Hàng Ngày)
+────────────────────────────────────────────────────────────────
+⏱️ Thời gian: <5 phút
+
+Chọn một trong số mini scripts:
+- Script #1: Quick Temp Cleanup
+- Script #2: Browser Cache Cleanup
+
+Hoặc chạy silent mode:
+  Deep_Clean_Windows_Advanced.bat silent
+
+Giải phóng: 1-2 GB
+
+
+### WORKFLOW 3: DEEP OPTIMIZATION (Lần Đầu)
+────────────────────────────────────────────────────────────────
+⏱️ Thời gian: ~90 phút
+
+1. Deep_Clean_Windows_Advanced.bat
+2. Script #10: Full Cleanup + Defrag
+3. Script #11: Repair System Files
+4. Restart Windows
+
+Giải phóng: 10-30 GB
+
+
+### WORKFLOW 4: DEVELOPER CLEANUP (Cho Dev)
+────────────────────────────────────────────────────────────────
+⏱️ Thời gian: ~10 phút
+
+1. Deep_Clean_Windows_Advanced.bat
+   (hoặc Script #3: Developer Tools Cleanup)
+2. Customize per project needs
+
+Giải phóng: 5-10 GB
+
+
+### WORKFLOW 5: AUTOMATED (Task Scheduler)
+────────────────────────────────────────────────────────────────
+⏱️ Thời gian: ~15 phút (tự động)
+
+Setup:
+1. Mở: taskschd.msc
+2. Create Basic Task
+3. Trigger: Weekly (Sunday 23:00)
+4. Action: Deep_Clean_Windows_Advanced.bat silent
+5. Run with highest privileges
+
+Chạy mỗi tuần tự động!
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+
+## ✅ CHECKLIST - TRƯỚC KHI CHẠY
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Trước chạy script lần đầu:
+
+☐ Đọc README.txt
+☐ Đóng tất cả browser (Chrome, Edge, Firefox)
+☐ Đóng VSCode (nếu đang mở)
+☐ Kiểm tra dung lượng ổ đĩa (phải còn >1GB)
+☐ Backup dữ liệu quan trọng (nếu lo lắng)
+☐ Kết nối Internet (cho npm cache clean)
+☐ Admin account
+☐ Windows 10/11
+
+Lúc chạy script:
+
+☐ Right-click → Run as Administrator
+☐ Chờ cho đến hoàn tất (15 phút)
+☐ KHÔNG tắt máy khi script chạy
+☐ Tùy chọn: Chọn Yes cho Disk Cleanup
+
+Sau chạy script:
+
+☐ Kiểm tra log: Desktop\CleanupLog.txt
+☐ Tìm dòng có "✗" nếu có lỗi
+☐ Restart máy nếu cần (CHKDSK)
+☐ Cảm nhận sự khác biệt! 😊
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+
+## 🔗 FILE RELATIONSHIPS - MỐI LIÊN HỆ
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+README.txt
+  ├─ QUICK START
+  ├─ → Deep_Clean_Windows_Advanced.bat (chạy)
+  ├─ → HƯỚNG_DẪN_SỬ_DỤNG.txt (nếu muốn hiểu sâu)
+  └─ → CleanupLog.txt (kiểm tra kết quả)
+
+HƯỚNG_DẪN_SỬ_DỤNG.txt
+  ├─ SETUP TẬS SCHEDULER
+  │  └─ → Deep_Clean_Windows_Advanced.bat silent mode
+  ├─ CHI TIẾT TÁC VỤ
+  │  └─ → Deep_Clean_Windows_Advanced.bat (source code)
+  └─ XỬ LỸ SỰ CỐ
+     └─ → MINI_SCRIPTS_COLLECTION.txt (fix scripts)
+
+CHANGELOG.txt
+  ├─ SO SÁNH V1.0 vs V2.0
+  └─ → Deep_Clean_Windows_Advanced.bat (mới)
+
+SCRIPT_BỔ_SUNG_VÀ_TỰY_CHỈNH.txt
+  ├─ REGISTRY CLEANUP
+  │  └─ → Deep_Clean_Windows_Advanced.bat (enhanced)
+  ├─ DISABLE SERVICES
+  │  └─ → MINI_SCRIPTS_COLLECTION.txt #8
+  └─ ADVANCED TIPS
+     └─ → Deep_Clean_Windows_Advanced.bat
+
+MINI_SCRIPTS_COLLECTION.txt
+  ├─ Script #1-7: Cleanup tasks
+  ├─ Script #8: Services
+  ├─ Script #9-10: Analysis/Defrag
+  ├─ Script #11: Repair
+  └─ Script #12: Backup
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+
+## 💾 HOW TO ORGANIZE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+RECOMMENDED FOLDER STRUCTURE:
+
+C:\Users\YourName\Documents\Windows_Cleanup\
+├─ Deep_Clean_Windows_Advanced.bat
+├─ README.txt
+├─ HƯỚNG_DẪN_SỬ_DỤNG.txt
+├─ CHANGELOG.txt
+├─ SCRIPT_BỔ_SUNG_VÀ_TỰY_CHỈNH.txt
+├─ MINI_SCRIPTS_COLLECTION.txt
+└─ MINI_SCRIPTS\ (folder con)
+    ├─ quick_temp_cleanup.bat
+    ├─ browser_cache_cleanup.bat
+    ├─ developer_cleanup.bat
+    └─ ... (other scripts)
+
+Hoặc lưu trực tiếp trên Desktop cho dễ chạy!
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+
+## 📊 PACKAGE STATISTICS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Total Files:         7 files
+├─ Executable:      1 (.bat)
+└─ Documentation:   6 (.txt)
+
+Total Lines of Code:    ~3500 lines
+├─ Main Script:         ~280 lines
+├─ Documentation:       ~3000 lines
+└─ Mini Scripts:        ~1000 lines
+
+Total Size:          ~500 KB (text)
+
+Supported Systems:
+├─ Windows 10 ✓
+├─ Windows 11 ✓
+└─ Windows 7/8/8.1 ✗
+
+Languages:
+├─ Tiếng Việt ✓
+├─ English ✓ (partial)
+└─ Others ✗
+
+Features:
+├─ 15+ cleanup tasks ✓
+├─ 12 mini scripts ✓
+├─ 3 operation modes ✓
+├─ Detailed logging ✓
+├─ Error handling ✓
+├─ Task Scheduler support ✓
+├─ Registry cleanup ✓
+└─ System repair tools ✓
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✅ PACKAGE COMPLETE!
+
+Bạn đã có toàn bộ công cụ dọn dẹp Windows chuyên nghiệp.
+Chúc bạn sử dụng thành công!
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

@@ -1,0 +1,335 @@
+╔══════════════════════════════════════════════════════════════════╗
+║              SCRIPT HỖ TRỢ - TỤY CHỈNH NÂNG CAO               ║
+╚══════════════════════════════════════════════════════════════════╝
+
+
+## 📌 PHẦN 1: BẢNG SO SÁNH FILE LẦU
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+┌─────────────────────────────────────┬──────────┬────────────────┐
+│ Tính Năng                           │ File Cũ  │ Version 2.0    │
+├─────────────────────────────────────┼──────────┼────────────────┤
+│ Kiểm tra quyền Admin                │ ✗        │ ✓              │
+│ Log file chi tiết                   │ ✗        │ ✓              │
+│ Chế độ Silent/Verbose               │ ✗        │ ✓              │
+│ Xóa Temp & Cache cơ bản             │ ✓        │ ✓ (Tốt hơn)    │
+│ Browser cache                       │ ✓        │ ✓ (Tốt hơn)    │
+│ Developer tools cache               │ ✓        │ ✓ (Tốt hơn)    │
+│ Xóa Thumbnails                      │ ✗        │ ✓              │
+│ Xóa Windows Update cache            │ ✓        │ ✓ (Tốt hơn)    │
+│ Xóa Delivery Optimization           │ ✗        │ ✓              │
+│ Xóa log hệ thống cũ                 │ ✗        │ ✓              │
+│ Kiểm tra ổ đĩa (chkdsk)            │ ✗        │ ✓              │
+│ Disk Cleanup automation             │ ✗        │ ✓              │
+│ Xóa Registry an toàn                │ ✗        │ ✓              │
+│ Liệt kê Services tùy chọn           │ ✗        │ ✓              │
+│ Xử lý lỗi chi tiết                  │ Tối thiểu│ ✓ (Chi tiết)   │
+│ Thông báo tiến độ rõ ràng            │ Sơ bộ    │ ✓ (Chi tiết)   │
+└─────────────────────────────────────┴──────────┴────────────────┘
+
+
+## 📌 PHẦN 2: CÁCH DISABLE SERVICES KHÔNG CẦN THIẾT
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+⚠️ CHỈ disable các services này nếu bạn chắc chắn không cần!
+
+### 1️⃣ DISABLE TELEMETRY SERVICES
+──────────────────────────────────────────────────────────────────
+
+Chạy CMD as Admin:
+
+  net stop DiagTrack
+  net stop dmwappushservice
+  net stop DoSvc
+  net stop WSearch
+
+Hoặc tạo file: disable_services.bat
+
+@echo off
+REM Tắt Telemetry
+net stop DiagTrack
+sc config DiagTrack start= disabled
+
+REM Tắt Advertising
+net stop dmwappushservice
+sc config dmwappushservice start= disabled
+
+REM Tắt OneDrive Sync
+net stop OneSyncSvc
+sc config OneSyncSvc start= disabled
+
+REM Tắt Search Indexing (tùy chọn)
+REM net stop WSearch
+REM sc config WSearch start= disabled
+
+echo Services đã được disable
+pause
+
+Lưu file và chạy as Admin
+
+
+### 2️⃣ DANH SÁCH SERVICES CÓ THỂ DISABLE
+──────────────────────────────────────────────────────────────────
+
+Service Name          | Mô Tả                      | Mức Nguy Hiểm
+─────────────────────────────────────────────────────────────────
+DiagTrack             | Diagnostic Tracking        | THẤP ✓
+dmwappushservice      | App recommendation         | THẤP ✓
+OneSyncSvc            | OneDrive Sync              | THẤP ✓
+WSearch               | Windows Search Indexing    | TRUNG BÌNH ⚠️
+DiagSvc              | Diagnostic Policy          | THẤP ✓
+DmEnrollmentSvc      | Device Management          | TRUNG BÌNH ⚠️
+MapsBroker           | Maps Broker                | THẤP ✓
+
+Chạy Services:
+  1. Nhấn Win + R
+  2. Gõ: services.msc
+  3. Tìm service, chuột phải → Stop
+  4. Double-click → Startup type: Disabled
+
+
+## 📌 PHẦN 3: TỐI ƯU HỆ THỐNG THÊM
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+### 1️⃣ XÓA FILE HIBERNATION
+──────────────────────────────────────────────────────────────────
+
+File hiberfil.sys chiếm 50% RAM
+
+Chạy CMD as Admin:
+
+  powercfg /h off
+
+Giải phóng: ~8GB (nếu RAM 16GB)
+
+
+### 2️⃣ XÓA PAGEFILE & VIRTUAL MEMORY
+──────────────────────────────────────────────────────────────────
+
+1. Nhấn Win + X → System
+2. Click: Advanced system settings
+3. Performance → Settings
+4. Advanced tab → Virtual memory → Change
+5. Uncheck: Automatically manage...
+6. Select C: → No paging file
+7. OK → Restart
+
+Yêu cầu: RAM tối thiểu 16GB
+
+
+### 3️⃣ TẮT VISUAL EFFECTS
+──────────────────────────────────────────────────────────────────
+
+Tăng speed lên 10-20%
+
+1. Nhấn Win + X → System
+2. Click: Advanced system settings
+3. Performance → Settings
+4. Chọn: Adjust for best performance
+5. OK → Restart
+
+
+### 4️⃣ DISABLE FAST STARTUP
+──────────────────────────────────────────────────────────────────
+
+Giải quyết một số lỗi boot
+
+1. Nhấn Win + R
+2. Gõ: powercfg.cpl
+3. Click: Choose what the power button does
+4. Uncheck: Turn on fast startup
+5. Save changes
+
+
+### 5️⃣ XÓA DUPLICATE FILES
+──────────────────────────────────────────────────────────────────
+
+Chạy:
+  dir /s /b C:\ | find /i ".zip" | find /i ".backup"
+
+Hoặc dùng tool:
+  • Duplicate File Finder (miễn phí)
+  • dupeGuru (open source)
+
+
+## 📌 PHẦN 4: REGISTRY CLEANUP AN TOÀN
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+⚠️ CẢNH BÁO: Sai sót trong registry có thể làm hỏng Windows!
+
+### Xóa Empty Registry Keys (An Toàn)
+──────────────────────────────────────────────────────────────────
+
+Tạo file: cleanup_registry.reg
+
+Windows Registry Editor Version 5.00
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\VolumeCaches]
+
+Để xóa:
+1. Right-click file .reg → Edit
+2. Tìm empty keys
+3. Delete
+
+Hoặc dùng tool:
+  • CCleaner (Freemium - chỉ dùng phần Registry)
+  • Wisecleaner (Freemium)
+
+
+### Backup Registry Trước Khi Làm
+──────────────────────────────────────────────────────────────────
+
+1. Win + R → regedit
+2. File → Export
+3. Save as: RegBackup_[Date].reg
+4. Chọn: All
+
+Nếu có vấn đề:
+1. Double-click RegBackup_[Date].reg
+2. Registry sẽ phục hồi
+
+
+## 📌 PHẦN 5: SCRIPT CLEANUP MỤC ĐÍCH ĐẶC BIỆT
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+### SCRIPT 1: CHỈXÓA BROWSER CACHE
+──────────────────────────────────────────────────────────────────
+
+Tạo file: cleanup_browser_only.bat
+
+@echo off
+chcp 65001 >nul
+
+echo Xóa Chrome cache...
+for /d %%A in ("%APPDATA%\Google\Chrome\User Data\*") do (
+  rd /s /q "%%A\Cache" 2>nul
+  rd /s /q "%%A\Cache2" 2>nul
+)
+
+echo Xóa Edge cache...
+for /d %%A in ("%APPDATA%\Microsoft\Edge\User Data\*") do (
+  rd /s /q "%%A\Cache" 2>nul
+  rd /s /q "%%A\Cache2" 2>nul
+)
+
+echo Xóa Firefox cache...
+for /d %%A in ("%APPDATA%\Mozilla\Firefox\Profiles\*") do (
+  del /q "%%A\cache\*.*" 2>nul
+)
+
+echo Hoàn thành!
+pause
+
+
+### SCRIPT 2: CHỈ XÓA TEMP
+──────────────────────────────────────────────────────────────────
+
+Tạo file: cleanup_temp_only.bat
+
+@echo off
+chcp 65001 >nul
+
+echo Xóa %TEMP%...
+for /d %%A in ("%temp%\*") do rd /s /q "%%A" 2>nul
+del /q "%temp%\*.*" 2>nul
+
+echo Xóa Windows Temp...
+for /d %%A in ("%windir%\Temp\*") do rd /s /q "%%A" 2>nul
+del /q "%windir%\Temp\*.*" 2>nul
+
+echo Hoàn thành! Giải phóng: ~500MB - 2GB
+pause
+
+
+### SCRIPT 3: CLEANUP + DEFRAG
+──────────────────────────────────────────────────────────────────
+
+Tạo file: cleanup_and_defrag.bat
+
+@echo off
+chcp 65001 >nul
+
+echo Bắt đầu cleanup...
+call Deep_Clean_Windows_Advanced.bat silent
+
+echo.
+echo Bắt đầu Defragmentation...
+defrag C: /O
+
+echo Hoàn thành!
+pause
+
+
+## 📌 PHẦN 6: MONITORING - KIỂM TRA KÍCH THƯỚC THƯMỤC
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Script: check_folder_size.bat
+
+@echo off
+chcp 65001 >nul
+
+cls
+echo.
+echo ╔══════════════════════════════════════════════════╗
+echo ║         KIỂM TRA KÍCH THƯỚC THƯMỤC              ║
+echo ╚══════════════════════════════════════════════════╝
+echo.
+
+for %%A in (
+  "%TEMP%|Temp"
+  "%APPDATA%\Google\Chrome\User Data|Chrome"
+  "%APPDATA%\Microsoft\Edge\User Data|Edge"
+  "%windir%\Prefetch|Prefetch"
+) do (
+  for /F "tokens=1,2 delims=|" %%X in ("%%A") do (
+    if exist "%%X" (
+      for /F %%Y in ('dir /s /b "%%X" 2^>nul ^| find /c /v ""') do (
+        echo ✓ %%Z: %%Y items
+      )
+    ) else (
+      echo ✗ %%Z: Not found
+    )
+  )
+)
+
+echo.
+pause
+
+
+## 📌 PHẦN 7: FREQUENTLY ASKED QUESTIONS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Q: Script có xóa file cá nhân không?
+A: KHÔNG. Script chỉ xóa:
+   - Temp & Cache files
+   - Browser cache
+   - System logs
+   File cá nhân ở Documents, Downloads, Desktop KHÔNG bị xóa.
+
+
+Q: Tôi có thể lên lịch script tự động không?
+A: CÓ. Xem phần "CÁCH 3" trong hướng dẫn sử dụng.
+
+
+Q: Script có làm chậm máy tính không?
+A: KHÔNG. Sẽ giải phóng dung lượng và tăng tốc độ.
+
+
+Q: Tôi có thể hủy script khi nó đang chạy không?
+A: CÓ, nhưng KHÔNG nên. Hãy chờ nó hoàn thành.
+
+
+Q: Xóa cache trình duyệt có làm mất mật khẩu không?
+A: KHÔNG. Mật khẩu lưu trong tệp khác, không xóa.
+   Nhưng bạn sẽ phải đăng nhập lại một số trang web.
+
+
+Q: Tôi có thể xóa hệ thống Registry không?
+A: KHÔNG. Script chỉ xóa các empty entries an toàn.
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✅ Hoàn tất! Sử dụng các script này để tối ưu hóa Windows hoàn toàn.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

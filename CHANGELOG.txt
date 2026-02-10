@@ -1,0 +1,311 @@
+╔══════════════════════════════════════════════════════════════════╗
+║                         CHANGELOG v2.0                          ║
+║              So Sánh Version Cũ vs Version 2.0                  ║
+╚══════════════════════════════════════════════════════════════════╝
+
+
+## 📈 THỐNG KÊ PHIÊN BẢN
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Version Cũ (Full_Clean.bat)
+├─ Lines of Code: ~130 dòng
+├─ Tính năng: 12 tác vụ chính
+├─ Log support: KHÔNG
+├─ Admin check: KHÔNG
+├─ Error handling: Sơ bộ
+└─ Complexity: Trung bình
+
+Version 2.0 (Deep_Clean_Windows_Advanced.bat)
+├─ Lines of Code: ~280 dòng
+├─ Tính năng: 15+ tác vụ chính
+├─ Log support: CÓ (chi tiết)
+├─ Admin check: CÓ (automatic UAC request)
+├─ Error handling: Chi tiết (per-operation)
+└─ Complexity: Cao/Chuyên nghiệp
+
+
+## 🆕 TÍNH NĂNG MỚI (VERSION 2.0)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+### ✅ TÍNH NĂNG BẢO MẬT
+────────────────────────────────────────────────────────────────
+1. Kiểm tra Quyền Admin Tự Động
+   - Phát hiện nếu script không có quyền admin
+   - Tự động yêu cầu UAC
+   - Dừng script nếu không được cấp quyền
+
+2. Xử Lý Lỗi Chi Tiết
+   - Kiểm tra từng thư mục trước khi xóa
+   - Thông báo lỗi cụ thể (✓ hoặc ✗)
+   - Tiếp tục chạy nếu một folder lỗi
+
+
+### ✅ TÍNH NĂNG LOGGING
+────────────────────────────────────────────────────────────────
+3. Tạo Log File Tự Động
+   - Lưu tại: Desktop\CleanupLog.txt
+   - Ghi lại: Thời gian, tác vụ, lỗi
+   - Có thể xem lại sau chạy
+
+4. Thống Kê Chi Tiết
+   - Số lượng folder xóa thành công
+   - Số folder bị lỗi (nếu có)
+   - Thời gian bắt đầu/kết thúc
+
+
+### ✅ TÍNH NĂNG CHẠY LINH HOẠT
+────────────────────────────────────────────────────────────────
+5. Chế Độ Silent (Chạy Âm Thầm)
+   - Dùng: Deep_Clean_Windows_Advanced.bat silent
+   - Không hiển thị dialog
+   - Hoàn hảo cho Task Scheduler
+
+6. Chế Độ Verbose (Chạy Verbose)
+   - Dùng: Deep_Clean_Windows_Advanced.bat
+   - Hiển thị tiến độ chi tiết
+   - Yêu cầu xác nhận Disk Cleanup
+
+7. Support Tham Số Dòng Lệnh
+   - Tùy chỉnh chế độ chạy
+   - Có thể tích hợp vào scripts khác
+   - Automation friendly
+
+
+### ✅ TÍNH NĂNG DỌN DẸP NÂNG CAO
+────────────────────────────────────────────────────────────────
+8. Xóa Thumbnails Cache
+   - Folder: %APPDATA%\Microsoft\Windows\Recent
+   - Giải phóng: 50 MB - 500 MB
+
+9. Xóa Delivery Optimization Cache
+   - Folder: %ALLUSERSPROFILE%\Microsoft\Network\Downloader
+   - Giải phóng: 100 MB - 1 GB
+
+10. Xóa Log Hệ Thống Cũ
+    - Folder: %windir%\logs
+    - Giải phóng: 50 MB - 500 MB
+
+11. Kiểm Tra Ổ Đĩa (CHKDSK)
+    - Lệnh: chkdsk C: /scan
+    - Phát hiện lỗi ổ đĩa
+    - Tùy chọn khôi phục lần khởi động tiếp theo
+
+12. Disk Cleanup Automation
+    - Chạy: cleanmgr /sagerun:1
+    - Xóa thêm file không cần thiết
+    - Yêu cầu xác nhận trong verbose mode
+
+13. Registry Cleanup An Toàn
+    - Xóa OneDriveSetup entry
+    - Xóa temporary registry entries
+    - KHÔNG xảo động system keys
+
+
+### ✅ GIAO DIỆN TỐTI ƯU
+────────────────────────────────────────────────────────────────
+14. Hiển Thị Tiến Độ Tốt Hơn
+    - Unicode boxes: ╔ ╚ ║
+    - Progress indicators: [1/15], [2/15], ...
+    - Status symbols: ✓, ✗, ℹ️
+
+15. Thông Báo Đầu/Cuối Chi Tiết
+    - Banner header
+    - Thông tin chế độ chạy
+    - Tóm tắt hoàn thành
+
+
+## 🔄 CẢI TIẾN TRONG CÁC TÍNH NĂNG CÓ SẴN
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+### Xóa TEMP
+V1.0:
+  for /d %%A in ("%temp%\*") do rd /s /q "%%A" 2>nul
+  del /q "%temp%\*.*" 2>nul
+
+V2.0:
+  for /d %%A in ("%temp%\*") do (
+      rd /s /q "%%A" 2>nul
+      if !errorlevel! equ 0 (
+          call :LogMessage "  ✓ Xóa thư mục: %%~nxA"
+      )
+  )
+  + Logging + Error handling
+
+Cải tiến: +Error tracking, +Logging
+
+
+### Xóa Browser Cache
+V1.0: Chỉ có for loop, không xử lý lỗi
+V2.0: + Kiểm tra folder exists + Error handling + Logging
+
+Cải tiến: +Robust error handling
+
+
+### Windows Update Cache
+V1.0:
+  net stop wuauserv 2>nul
+  rd /s /q "%windir%\SoftwareDistribution\Download" 2>nul
+  net start wuauserv 2>nul
+
+V2.0:
+  net stop wuauserv 2>nul
+  timeout /t 1 /nobreak
+  rd /s /q "%windir%\SoftwareDistribution\Download" 2>nul
+  md "%windir%\SoftwareDistribution\Download" 2>nul
+  net start wuauserv 2>nul
+  + Logging
+
+Cải tiến: +Tạo lại folder, +Timeout, +Logging
+
+
+## 📊 SO SÁNH CHI TIẾT
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Tính Năng                        | V1.0 | V2.0 | Cải Tiến
+─────────────────────────────────────────────────────────────
+Xóa %TEMP%                       |  ✓   |  ✓   | +Logging
+Xóa Windows Temp                 |  ✓   |  ✓   | +Logging
+Xóa Prefetch                     |  ✓   |  ✓   | +Logging
+Xóa CrashDumps                   |  ✓   |  ✓   | +Logging
+Xóa Recycle Bin                  |  ✓   |  ✓   | +Logging
+Xóa Thumbnails                   |  ✗   |  ✓   | NEW
+Chrome/Edge/Firefox Cache        |  ✓   |  ✓   | +Exists check
+Discord/Steam/VSCode Cache       |  ✓   |  ✓   | +Error handling
+npm/Python/Go Cache              |  ✓   |  ✓   | +Logging
+Windows Update Cache             |  ✓   |  ✓   | +Folder recreate
+Delivery Optimization            |  ✗   |  ✓   | NEW
+Log Hệ Thống                     |  ✗   |  ✓   | NEW
+CHKDSK Scan                      |  ✗   |  ✓   | NEW
+Disk Cleanup                     |  ✗   |  ✓   | NEW
+Registry Cleanup                 |  ✗   |  ✓   | NEW
+Services Listing                 |  ✗   |  ✓   | NEW
+Quyền Admin Check                |  ✗   |  ✓   | NEW
+Logging System                   |  ✗   |  ✓   | NEW
+Silent/Verbose Mode              |  ✗   |  ✓   | NEW
+Error Handling                   |  ~   |  ✓   | IMPROVED
+Progress Indicators              |  ~   |  ✓   | IMPROVED
+UI/UX                            |  ~   |  ✓   | IMPROVED
+
+
+## 🚀 CÁCH NÂNG CẬP TỪ V1.0 ĐẾN V2.0
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+### ✅ CÁCH 1: THAY THẾ HOÀN TOÀN
+────────────────────────────────────────────────────────────────
+1. Xóa file cũ: Full_Clean.bat
+2. Tải file mới: Deep_Clean_Windows_Advanced.bat
+3. Chạy file mới
+
+Ưu điểm:
+  ✓ Nhanh nhất
+  ✓ Sạch sẽ
+
+Nhược điểm:
+  ✗ Mất lịch sử cũ
+
+
+### ✅ CÁCH 2: GIỮ CẢ HAI
+────────────────────────────────────────────────────────────────
+1. Đặt tên file cũ thành: Full_Clean_BACKUP.bat
+2. Lưu file mới: Deep_Clean_Windows_Advanced.bat
+3. Chạy file mới
+
+Ưu điểm:
+  ✓ Giữ được file cũ để so sánh
+  ✓ Có thể quay lại nếu cần
+
+
+### ✅ CÁCH 3: CUSTOM HYBRID
+────────────────────────────────────────────────────────────────
+Nếu bạn có custom modifications trong file cũ:
+
+1. Mở file cũ (Full_Clean.bat) và file mới (v2.0)
+2. Copy-paste custom parts từ cũ sang mới
+3. Điều chỉnh các hàm :LogMessage để logging
+
+Ví dụ:
+
+REM Từ file cũ
+echo [CUSTOM] Xóa folder custom...
+rd /s /q "C:\MyCustomFolder" 2>nul
+
+REM Thành trong file mới
+echo [CUSTOM] Xóa folder custom...
+call :LogMessage "Xóa custom folder..."
+rd /s /q "C:\MyCustomFolder" 2>nul
+
+
+## 📝 MIGRATION CHECKLIST
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+☐ Tải file Deep_Clean_Windows_Advanced.bat
+☐ Đặt vào thư mục dễ tìm (Desktop hoặc Program Files)
+☐ Test chạy với tùy chọn verbose lần đầu
+☐ Kiểm tra log file: CleanupLog.txt
+☐ Xác nhận không có lỗi gì
+☐ Lần sau chạy với silent mode nếu muốn
+☐ Setup Task Scheduler nếu muốn chạy tự động
+☐ Giữ file cũ nếu muốn backup
+
+
+## 🎯 KHUYẾN NGHỊ CHUYỂN ĐỔI
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✅ NÊN NÂNG CẬP NGAY NẾU:
+  ✓ Bạn cần logging chi tiết
+  ✓ Muốn chạy với Task Scheduler
+  ✓ Muốn xóa thêm disk optimization cache
+  ✓ Cần xác nhận quyền admin
+
+✅ CÓ THỂ CHỜ NẾU:
+  - File cũ vẫn hoạt động tốt
+  - Không cần logging
+  - Chạy thủ công không thường xuyên
+
+❌ KHÔNG NÊN DỰA LỰA NẾU:
+  Bạn làm việc với công ty/tổ chức
+  (Phần mềm dọn dẹp thương mại tốt hơn)
+
+
+## 🔗 LIÊN KẾT & TÀI LIỆU
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Files trong package:
+
+1. Deep_Clean_Windows_Advanced.bat
+   → Script chính v2.0
+
+2. HƯỚNG_DẪN_SỬ_DỤNG.txt
+   → Hướng dẫn chi tiết cách sử dụng
+
+3. SCRIPT_BỔ_SUNG_VÀ_TỰY_CHỈNH.txt
+   → Scripts bổ sung & tùy chỉnh nâng cao
+
+4. CHANGELOG.txt (file này)
+   → Thay đổi giữa các version
+
+
+## 📞 HỖTRỢ & BÁO CÁO LỖI
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Nếu gặp vấn đề:
+
+1. Kiểm tra CleanupLog.txt
+2. Tìm dòng có "✗" hoặc error message
+3. Thử chạy lại ở chế độ verbose
+4. Nếu vẫn lỗi, thử xóa thủ công thư mục đó
+
+Logs thích hợp để báo cáo:
+  • Nội dung CleanupLog.txt (dòng có lỗi)
+  • Windows version (Win 10 vs Win 11)
+  • Bắt cứu lệnh bạn chạy
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✅ CHANGELOG Complete
+
+Version 2.0 là cải tiến lớn so với v1.0
+Khuyến nghị nâng cấp cho trải nghiệm tốt hơn!
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
